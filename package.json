@@ -1,0 +1,8 @@
+{
+  "name": "natural-education",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "start": "node server.mjs", "build": "node build.mjs", "check": "node --check scene.js" },
+  "dependencies": { "three": "0.170.0" }
+}

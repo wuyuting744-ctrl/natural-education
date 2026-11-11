@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f5f3ec">
+  <title>森间小路 · 儿童自然街区</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head>
+<body>
+  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M19 4C10 3 4 7 5 13c1 7 12 8 14-9Z"/><path d="m5 20 9-10m-4 4 5 1"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M19.5 15.5A8.5 8.5 0 0 1 8.5 4.5a8.5 8.5 0 1 0 11 11Z"/></symbol>
+    <symbol id="i-flower" viewBox="0 0 24 24"><path d="M12 8c-6-9-12 2-5 4-8 5 1 12 5 5 4 7 13 0 5-5 7-2 1-13-5-4Z"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7M9 4l3 3 3-3M9 20l3-3 3 3M4 10l4-1-1-4m10 14-1-4 4-1M4 14l4 1-1 4m10-14-1 4 4 1"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></symbol>
+    <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M19 8c-2-5-12-5-14 0m14-4v4h-4M5 16c2 5 12 5 14 0m-14 4v-4h4"/><ellipse cx="12" cy="12" rx="3" ry="5"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
+    <symbol id="i-seed" viewBox="0 0 24 24"><path d="M12 21V11M12 15C4 15 3 9 3 6c7 0 9 4 9 9Zm0-4c0-6 4-8 9-8 0 6-3 9-9 8ZM5 21h14"/></symbol>
+    <symbol id="i-water" viewBox="0 0 24 24"><path d="M12 2S5 10 5 15a7 7 0 0 0 14 0c0-5-7-13-7-13ZM8 15c0 2 1 3 3 3"/></symbol>
+    <symbol id="i-bug" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="14" rx="5"/><path d="M9 7V5a3 3 0 0 1 6 0v2M12 10v11M3 9l4 2m-4 5 4-1m14-6-4 2m4 5-4-1M8 3 6 1m10 2 2-2"/></symbol>
+  </defs></svg>
+  <header class="header">
+    <a class="brand" href="./" aria-label="森间小路首页"><span class="brand-mark"><svg><use href="#i-leaf"/></svg></span><span>森间小路<small>FOREST LANE</small></span></a>
+    <div class="header-sub">一条街道，一整座自然课堂。</div>
+    <div class="project-label"><span class="status-dot"></span>儿童友好 · 自然教育<span class="label-divider"></span><span>互动景观 / 01</span></div>
+  </header>
+  <main class="layout">
+    <section class="experience" aria-label="互动三维景观">
+      <div class="intro"><span class="eyebrow">A LITTLE WORLD, A BIG DISCOVERY</span><h1>把自然，<br>还给童年<span>。</span></h1><p>在街角种下一片好奇心。<br>跟随四季与日光，发现自然的每一种模样。</p></div>
+      <div id="viewport" aria-label="拖动旋转、滚轮缩放的儿童自然教育三维街景"></div>
+      <div class="scene-badge"><span class="badge-dot"></span><span id="scene-caption">春日街角</span><span class="badge-slash">/</span><span id="scene-weather">万物生长中</span></div>
+      <div class="scene-tools"><button id="rotate" title="自动环绕" aria-label="自动环绕" aria-pressed="false"><svg><use href="#i-rotate"/></svg></button><button id="reset" title="回到初始视角" aria-label="回到初始视角"><svg><use href="#i-reset"/></svg></button><button id="fullscreen" title="全屏欣赏" aria-label="全屏欣赏"><svg><use href="#i-expand"/></svg></button></div>
+      <div class="gesture-hint"><span class="mouse-icon"></span>拖动旋转<span>·</span>滚轮缩放<span>·</span>右键平移<span class="hint-line"></span><span>去发现你的街角</span></div>
+      <div id="loading" role="status"><span class="loading-leaf">✦</span><p>小小街区，正在生长…</p></div>
+      <div class="location-tag" id="location-tag" hidden></div>
+    </section>
+    <aside class="sidebar">
+      <section class="control-card seasons"><div class="section-heading"><span class="section-number">01</span><h2>走过四季</h2><span class="english">SEASONS</span></div><p class="card-description">每一季，都有新的发现。</p>
+        <div class="season-buttons" aria-label="选择季节">
+          <button data-season="spring" aria-pressed="true"><svg><use href="#i-flower"/></svg><span>春</span><small>SPRING</small></button>
+          <button data-season="summer" aria-pressed="false"><svg><use href="#i-sun"/></svg><span>夏</span><small>SUMMER</small></button>
+          <button data-season="autumn" aria-pressed="false"><svg><use href="#i-leaf"/></svg><span>秋</span><small>AUTUMN</small></button>
+          <button data-season="winter" aria-pressed="false"><svg><use href="#i-snow"/></svg><span>冬</span><small>WINTER</small></button>
+        </div><div class="season-story"><span id="season-symbol">✿</span><div><strong id="season-title">春 · 让好奇发芽</strong><p id="season-description">樱花轻落，播下一颗种子，<br>等待小小的生命破土而出。</p></div></div>
+      </section>
+      <section class="control-card time-card"><div class="section-heading"><span class="section-number">02</span><h2>追着日光</h2><span class="english">DAY & NIGHT</span></div><div class="time-display"><span><svg id="time-icon"><use href="#i-sun"/></svg><span id="time-label">午后时光</span></span><output id="time-output" for="time">14:00</output></div><label class="sr-only" for="time">一天中的时间</label><input type="range" id="time" min="0" max="24" step="0.1" value="14" aria-valuetext="14:00"><div class="time-ticks"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div><div class="time-note"><span class="tiny-dot"></span><span id="time-note">阳光暖暖的，去树荫下听一堂自然课。</span></div></section>
+      <section class="explore-card"><div class="section-heading"><span class="section-number">03</span><h2>街角的自然课</h2><span class="english">EXPLORE</span></div><p class="card-description">点一点，走近孩子们的发现。</p><div class="activity-list">
+        <button data-activity="classroom"><span class="activity-icon"><svg><use href="#i-leaf"/></svg></span><span><strong>树下课堂</strong><small>听风，认叶，分享发现</small></span><svg class="arrow"><use href="#i-arrow"/></svg></button>
+        <button data-activity="garden"><span class="activity-icon"><svg><use href="#i-seed"/></svg></span><span><strong>小小种植家</strong><small>播种与照料，认识食物</small></span><svg class="arrow"><use href="#i-arrow"/></svg></button>
+        <button data-activity="water"><span class="activity-icon"><svg><use href="#i-water"/></svg></span><span><strong>雨水的旅行</strong><small>观察水生植物与雨水循环</small></span><svg class="arrow"><use href="#i-arrow"/></svg></button>
+        <button data-activity="bugs"><span class="activity-icon"><svg><use href="#i-bug"/></svg></span><span><strong>昆虫观察站</strong><small>为街角的小邻居安一个家</small></span><svg class="arrow"><use href="#i-arrow"/></svg></button>
+      </div></section>
+    </aside>
+  </main>
+  <footer><span>让街道成为孩子与自然相遇的地方</span><span>DESIGNED FOR LITTLE EXPLORERS <span class="footer-flower">✳</span></span><span>THREE.JS · 可交互微缩景观</span></footer>
+  <dialog id="activity-dialog"><button id="close-dialog" aria-label="关闭活动介绍">×</button><span class="eyebrow">A SMALL DISCOVERY</span><h2 id="activity-title"></h2><p id="activity-detail"></p><div id="activity-tip"></div><button id="back-to-scene">继续探索 <span>↗</span></button></dialog>
+  <script type="module" src="scene.js"></script>
+</body>
+</html>
